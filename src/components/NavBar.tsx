@@ -1,7 +1,14 @@
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
-import { LogOut } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { LogOut, Settings } from 'lucide-react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { FaInstagram } from 'react-icons/fa';
@@ -58,7 +65,7 @@ export function NavBar() {
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 bg-accent text-gray-800 p-2 mt-2 rounded-md flex flex-col gap-2" align="end">
+            <DropdownMenuContent className="w-56 bg-accent text-gray-800 p-2 rounded-md flex flex-col gap-2" align="end" forceMount>
               <DropdownMenuLabel>Account</DropdownMenuLabel>
               <DropdownMenuItem className="p-1">
                 <div className="flex flex-col space-y-1">
@@ -66,6 +73,7 @@ export function NavBar() {
                   <p className="text-xs leading-none text-muted-foreground">user@example.com</p>
                 </div>
               </DropdownMenuItem>
+              <DropdownMenuSeparator />
               <DropdownMenuItem className="flex flex-row gap-1 cursor-pointer" onClick={() => toggleDashboard()}>
                 <div className="flex flex-col justify-center">
                   <LogOut className="h-4 w-4" />
